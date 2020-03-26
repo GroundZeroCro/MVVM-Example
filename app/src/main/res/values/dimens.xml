@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mayor_button_text_size">23sp</dimen>
+    <dimen name="medium_padding">16dp</dimen>
+    <dimen name="slide_animation_duration">200</dimen>
+</resources>
