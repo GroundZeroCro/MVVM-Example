@@ -1,10 +1,10 @@
 package com.groundzero.asynclabs.features.authentication.common
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.groundzero.asynclabs.R
+import com.groundzero.asynclabs.base.BaseActivity
 
-class AuthenticationActivity : AppCompatActivity() {
+class AuthenticationActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
