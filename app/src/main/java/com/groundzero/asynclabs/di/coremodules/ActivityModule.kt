@@ -1,6 +1,6 @@
 package com.groundzero.asynclabs.di.coremodules
 
-import com.groundzero.asynclabs.base.MainActivity
+import com.groundzero.asynclabs.features.employees.common.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

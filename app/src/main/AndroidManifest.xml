@@ -3,24 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.groundzero.asynclabs">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".base.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name="com.groundzero.asynclabs.base.App"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.groundzero.asynclabs.base.MainActivity">
+        <activity android:name=".features.authentication.common.AuthenticationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".features.employees.common.MainActivity"/>
     </application>
-
 </manifest>
