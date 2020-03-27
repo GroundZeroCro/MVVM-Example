@@ -1,4 +1,4 @@
-package com.groundzero.asynclabs.features.authentication.registration
+package com.groundzero.asynclabs.features.authentication.registration.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

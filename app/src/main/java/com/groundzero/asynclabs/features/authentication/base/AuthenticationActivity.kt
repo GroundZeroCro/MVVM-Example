@@ -1,4 +1,4 @@
-package com.groundzero.asynclabs.features.authentication.common
+package com.groundzero.asynclabs.features.authentication.base
 
 import android.os.Bundle
 import com.groundzero.asynclabs.R

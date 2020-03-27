@@ -2,7 +2,7 @@ package com.groundzero.asynclabs.di.modules
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.groundzero.asynclabs.api.EmployeesApi
+import com.groundzero.asynclabs.features.authentication.api.AuthenticationApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -16,10 +16,10 @@ class RemoteModule {
 
     @Provides
     @Singleton
-    fun provideEmployeesApi(
+    fun provideAuthenticationApi(
         client: OkHttpClient,
         converterFactory: GsonConverterFactory
-    ) = createApi(client, converterFactory, EmployeesApi::class.java)
+    ) = createApi(client, converterFactory, AuthenticationApi::class.java)
 
     private fun <T> createApi(
         client: OkHttpClient,
@@ -35,7 +35,7 @@ class RemoteModule {
         Retrofit.Builder()
             .addConverterFactory(converterFactory)
             .client(client)
-            .baseUrl(EmployeesApi.BASE_URL)
+            .baseUrl(BASE_URL)
             .build()
 
     @Provides
@@ -52,6 +52,9 @@ class RemoteModule {
 
     @Singleton
     @Provides
-    fun provideGsonConverter(gson: Gson): GsonConverterFactory =
-        GsonConverterFactory.create()
+    fun provideGsonConverter(): GsonConverterFactory = GsonConverterFactory.create()
+
+    companion object {
+        const val BASE_URL = "https://private-anon-145357f057-technicaltaskapi.apiary-mock.com/"
+    }
 }
