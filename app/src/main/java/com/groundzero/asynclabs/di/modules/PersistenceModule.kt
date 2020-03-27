@@ -13,6 +13,10 @@ class PersistenceModule {
     @Provides
     fun provideUserDao(persistenceDatabase: PersistenceDatabase) =persistenceDatabase.getUserDao()
 
+    @Singleton
+    @Provides
+    fun provideTokenDao(persistenceDatabase: PersistenceDatabase) =persistenceDatabase.getTokenDao()
+
     @Provides
     @Singleton
     fun providePersistenceDatabase(app: Application) = PersistenceDatabase.getInstance(app)

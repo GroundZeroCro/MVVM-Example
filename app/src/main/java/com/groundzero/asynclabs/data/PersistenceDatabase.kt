@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.groundzero.asynclabs.features.authentication.persistance.Token
+import com.groundzero.asynclabs.features.authentication.persistance.TokenDao
 import com.groundzero.asynclabs.features.authentication.persistance.User
 import com.groundzero.asynclabs.features.authentication.persistance.UserDao
 
@@ -16,6 +17,7 @@ import com.groundzero.asynclabs.features.authentication.persistance.UserDao
 abstract class PersistenceDatabase : RoomDatabase() {
 
     abstract fun getUserDao(): UserDao
+    abstract fun getTokenDao(): TokenDao
 
     companion object {
 
