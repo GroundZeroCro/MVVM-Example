@@ -2,6 +2,7 @@ package com.groundzero.asynclabs.features.authentication.persistance
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.groundzero.asynclabs.features.authentication.api.UserResponse
 
 @Entity(tableName = "user")
 data class User(
@@ -10,4 +11,8 @@ data class User(
     val avatar: String,
     val name: String,
     val email: String
-)
+) {
+    companion object{
+        fun fromUser(user: UserResponse) = User(0, user.avatar, user.name, user.email)
+    }
+}

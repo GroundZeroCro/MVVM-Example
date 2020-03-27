@@ -7,5 +7,6 @@ import com.groundzero.asynclabs.features.authentication.api.LoginResponse
 import javax.inject.Inject
 
 class LoginDataSource @Inject constructor(private val api: AuthenticationApi) : BaseDataSource() {
-    suspend fun login(): Result<LoginResponse> = getResult { api.loginUser() }
+    suspend fun login(username: String, password: String):
+            Result<LoginResponse> = getResult { api.loginUser(username, password) }
 }

@@ -1,7 +1,23 @@
-package com.groundzero.asynclabs.features.authentication.login.data
+package com.groundzero.asynclabs.features.authentication.registration.data
 
+import com.groundzero.asynclabs.data.resultLiveData
+import com.groundzero.asynclabs.features.authentication.persistance.Token
+import com.groundzero.asynclabs.features.authentication.persistance.TokenDao
+import com.groundzero.asynclabs.features.authentication.persistance.User
+import com.groundzero.asynclabs.features.authentication.persistance.UserDao
 import javax.inject.Inject
 
-class RegistrationRepository @Inject constructor(private val dataSource: RegistrationDataSource) {
-
+class RegistrationRepository @Inject constructor(
+    private val dataSource: RegistrationDataSource,
+    private val userPersistence: UserDao,
+    private val tokenPersistence: TokenDao
+) {
+    fun register(username: String, email: String, password: String) = resultLiveData(
+        networkCall = { dataSource.register(username, email, password) },
+        saveLocal = {
+            userPersistence.insert(User.fromUser(it.user))
+            tokenPersistence.insert(Token.fromResponse(it.token))
+        },
+        observeLocal = { userPersistence.getUser() }
+    )
 }

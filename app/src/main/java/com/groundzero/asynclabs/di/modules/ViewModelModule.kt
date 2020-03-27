@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.groundzero.asynclabs.di.helper.ViewModelFactory
 import com.groundzero.asynclabs.di.scopes.ViewModelKey
 import com.groundzero.asynclabs.features.authentication.login.ui.LoginViewModel
+import com.groundzero.asynclabs.features.authentication.registration.ui.RegistrationViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -16,6 +17,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     abstract fun bindLoginViewModel(viewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(RegistrationViewModel::class)
+    abstract fun bindRegistrationViewModel(viewModel: RegistrationViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

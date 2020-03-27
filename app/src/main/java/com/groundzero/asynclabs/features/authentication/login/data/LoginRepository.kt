@@ -9,9 +9,9 @@ class LoginRepository @Inject constructor(
     private val dataSource: LoginDataSource,
     private val persistenceSource: TokenDao
 ) {
-    val login =
+    fun login(username: String, password: String) =
         resultLiveData(
-            networkCall = { dataSource.login() },
+            networkCall = { dataSource.login(username, password) },
             observeLocal = { persistenceSource.getToken() },
             saveLocal = { persistenceSource.insert(Token.fromResponse(it.token)) }
         )
