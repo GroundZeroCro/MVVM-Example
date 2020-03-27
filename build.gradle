@@ -9,6 +9,7 @@ buildscript {
         retrofit = '2.6.0'
         gson = '2.8.5'
         dagger2 = '2.23.2'
+        room = '2.2.5'
     }
     repositories {
         google()
