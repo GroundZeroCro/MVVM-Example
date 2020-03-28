@@ -3,7 +3,7 @@ package com.groundzero.mvvm.di.modules
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.groundzero.mvvm.features.authentication.common.api.AuthenticationApi
-import com.groundzero.mvvm.features.authentication.common.persistance.TokenDao
+import com.groundzero.mvvm.features.authentication.common.domain.TokenDao
 import com.groundzero.mvvm.features.content.feed.api.FeedApi
 import dagger.Module
 import dagger.Provides

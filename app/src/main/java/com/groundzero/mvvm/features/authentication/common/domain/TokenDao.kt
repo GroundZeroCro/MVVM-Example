@@ -1,4 +1,4 @@
-package com.groundzero.mvvm.features.authentication.common.persistance
+package com.groundzero.mvvm.features.authentication.common.domain
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

@@ -11,6 +11,10 @@ class PersistenceModule {
 
     @Singleton
     @Provides
+    fun provideFeedDao(persistenceDatabase: PersistenceDatabase) =persistenceDatabase.getFeedDao()
+
+    @Singleton
+    @Provides
     fun provideUserDao(persistenceDatabase: PersistenceDatabase) =persistenceDatabase.getUserDao()
 
     @Singleton

@@ -1,4 +1,4 @@
-package com.groundzero.mvvm.features.authentication.common.persistance
+package com.groundzero.mvvm.features.authentication.common.domain
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

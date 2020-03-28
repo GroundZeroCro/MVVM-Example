@@ -4,13 +4,20 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.groundzero.mvvm.features.authentication.common.persistance.Token
-import com.groundzero.mvvm.features.authentication.common.persistance.TokenDao
-import com.groundzero.mvvm.features.authentication.common.persistance.User
-import com.groundzero.mvvm.features.authentication.common.persistance.UserDao
+import androidx.room.TypeConverters
+import com.groundzero.mvvm.features.authentication.common.domain.Token
+import com.groundzero.mvvm.features.authentication.common.domain.TokenDao
+import com.groundzero.mvvm.features.authentication.common.domain.User
+import com.groundzero.mvvm.features.authentication.common.domain.UserDao
+import com.groundzero.mvvm.features.content.feed.domain.Feed
+import com.groundzero.mvvm.features.content.feed.domain.FeedConverters
+import com.groundzero.mvvm.features.content.feed.domain.FeedDao
 
+@TypeConverters(
+    FeedConverters::class
+)
 @Database(
-    entities = [User::class, Token::class],
+    entities = [User::class, Token::class, Feed::class],
     exportSchema = false,
     version = 1
 )
@@ -18,6 +25,7 @@ abstract class PersistenceDatabase : RoomDatabase() {
 
     abstract fun getUserDao(): UserDao
     abstract fun getTokenDao(): TokenDao
+    abstract fun getFeedDao(): FeedDao
 
     companion object {
 
