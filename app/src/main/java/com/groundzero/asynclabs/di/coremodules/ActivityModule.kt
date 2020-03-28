@@ -1,7 +1,7 @@
 package com.groundzero.asynclabs.di.coremodules
 
 import com.groundzero.asynclabs.features.authentication.common.base.AuthenticationActivity
-import com.groundzero.asynclabs.features.feed.FeedActivity
+import com.groundzero.asynclabs.features.content.common.base.ContentActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -12,5 +12,5 @@ abstract class ActivityModule {
     abstract fun contributeAuthActivity(): AuthenticationActivity
 
     @ContributesAndroidInjector(modules = [FeedFragmentsModule::class])
-    abstract fun contributeFeedActivity(): FeedActivity
+    abstract fun contributeFeedActivity(): ContentActivity
 }

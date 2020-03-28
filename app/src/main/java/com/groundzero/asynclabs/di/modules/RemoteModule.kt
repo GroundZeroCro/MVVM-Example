@@ -3,6 +3,7 @@ package com.groundzero.asynclabs.di.modules
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.groundzero.asynclabs.features.authentication.common.api.AuthenticationApi
+import com.groundzero.asynclabs.features.content.feed.api.FeedApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -13,6 +14,13 @@ import javax.inject.Singleton
 
 @Module
 class RemoteModule {
+
+    @Provides
+    @Singleton
+    fun provideFeedApi(
+        client: OkHttpClient,
+        converterFactory: GsonConverterFactory
+    ) = createApi(client, converterFactory, FeedApi::class.java)
 
     @Provides
     @Singleton

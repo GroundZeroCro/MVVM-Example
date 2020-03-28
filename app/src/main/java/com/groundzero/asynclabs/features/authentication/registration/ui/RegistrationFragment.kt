@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.groundzero.asynclabs.R
 import com.groundzero.asynclabs.base.BaseFragment
 import com.groundzero.asynclabs.data.Result
 import com.groundzero.asynclabs.databinding.FragmentRegistrationBinding
 import com.groundzero.asynclabs.di.helper.injectViewModel
-import com.groundzero.asynclabs.features.feed.FeedActivity
+import com.groundzero.asynclabs.features.content.common.base.ContentActivity
 import com.groundzero.asynclabs.utils.go
 
 class RegistrationFragment : BaseFragment() {
@@ -37,7 +36,7 @@ class RegistrationFragment : BaseFragment() {
                         progressDialog.showDialog(requireContext(), requireContext().getString(R.string.progress_bar_logging_in_message))
                     Result.Status.SUCCESS -> {
                         progressDialog.cancelDialog()
-                        startActivity(Intent(requireContext(), FeedActivity::class.java))
+                        startActivity(Intent(requireContext(), ContentActivity::class.java))
                     }
                     Result.Status.ERROR -> {}
                 }

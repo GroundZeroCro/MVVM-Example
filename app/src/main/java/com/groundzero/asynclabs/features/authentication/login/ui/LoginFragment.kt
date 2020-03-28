@@ -11,7 +11,7 @@ import com.groundzero.asynclabs.base.BaseFragment
 import com.groundzero.asynclabs.data.Result
 import com.groundzero.asynclabs.databinding.FragmentLoginBinding
 import com.groundzero.asynclabs.di.helper.injectViewModel
-import com.groundzero.asynclabs.features.feed.FeedActivity
+import com.groundzero.asynclabs.features.content.common.base.ContentActivity
 import com.groundzero.asynclabs.utils.go
 
 class LoginFragment : BaseFragment() {
@@ -39,7 +39,7 @@ class LoginFragment : BaseFragment() {
                         )
                     Result.Status.SUCCESS -> {
                         progressDialog.cancelDialog()
-                        startActivity(Intent(requireContext(), FeedActivity::class.java))
+                        startActivity(Intent(requireContext(), ContentActivity::class.java))
                     }
                     Result.Status.ERROR -> {
                     }

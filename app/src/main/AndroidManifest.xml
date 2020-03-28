@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".features.feed.FeedActivity"
+            android:name=".features.content.common.base.ContentActivity"
             android:label="@string/title_activity_feed"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
