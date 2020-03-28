@@ -13,14 +13,14 @@
         <action
             android:id="@+id/action_feedFragment_to_videoFragment"
             app:destination="@id/videoFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_out_right"
-            app:popExitAnim="@anim/slide_in_left" />
+            app:popExitAnim="@anim/slide_in_left"/>
     </fragment>
     <fragment
         android:id="@+id/videoFragment"
-        android:name="com.groundzero.mvvm.VideoFragment"
+        android:name="com.groundzero.mvvm.features.content.video.ui.VideoFragment"
         android:label="fragment_video"
         tools:layout="@layout/fragment_video" >
         <argument

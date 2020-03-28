@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.groundzero.mvvm.R
-import com.groundzero.mvvm.VideoFragment
 import com.groundzero.mvvm.base.BaseFragment
 import com.groundzero.mvvm.data.Result
 import com.groundzero.mvvm.databinding.FragmentFeedBinding
@@ -45,6 +44,7 @@ class FeedFragment : BaseFragment(), FeedListener {
     }.root
 
     override fun onItemClick(feed: Feed) {
-        findNavController().navigate(R.id.action_feedFragment_to_videoFragment)
+        val action = FeedFragmentDirections.actionFeedFragmentToVideoFragment(feed)
+        findNavController().navigate(action)
     }
 }

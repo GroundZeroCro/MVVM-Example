@@ -11,6 +11,8 @@ buildscript {
         dagger2 = '2.23.2'
         room = '2.2.5'
         glide = '4.11.0'
+        nav_version = '2.3.0-alpha04'
+        exo_player = '2.11.3'
     }
     repositories {
         google()
@@ -20,6 +22,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
 
