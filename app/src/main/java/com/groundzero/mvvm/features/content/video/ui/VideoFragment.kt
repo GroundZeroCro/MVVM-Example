@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -37,13 +36,6 @@ class VideoFragment : Fragment() {
             .createMediaSource(Uri.parse(args.feed.video.url))
         player.prepare(videoSource)
 
-        val callback: OnBackPressedCallback =
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    println("Back pressed")
-                    println(childFragmentManager.backStackEntryCount)
-                }
-            }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
     }.root
 }
