@@ -8,18 +8,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.groundzero.mvvm.databinding.ItemFeedBinding
 import com.groundzero.mvvm.features.content.feed.domain.Feed
 
-class FeedAdapter : ListAdapter<Feed, FeedAdapter.FeedViewHolder>(DIFF_CALLBACK) {
+class FeedAdapter(private val listener: FeedListener) :
+    ListAdapter<Feed, FeedAdapter.FeedViewHolder>(DIFF_CALLBACK) {
 
-    class FeedViewHolder(private val binding: ItemFeedBinding) :
+    class FeedViewHolder(private val binding: ItemFeedBinding, private val listener: FeedListener) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(feed: Feed) {
             binding.feed = feed
+            itemView.setOnClickListener { listener.onItemClick(feed) }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder =
-        FeedViewHolder(ItemFeedBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        FeedViewHolder(
+            ItemFeedBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            listener
+        )
 
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         holder.bind(getItem(position))

@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.groundzero.mvvm.features.content.feed.api.FeedResponse
+import java.io.Serializable
 
 @Entity(tableName = "feeds")
 data class Feed(
@@ -15,7 +16,7 @@ data class Feed(
     val author: Author,
     @TypeConverters(FeedConverters::class)
     val video: Video
-) {
+): Serializable {
     data class Author(
         val id: Int,
         val name: String
