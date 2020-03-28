@@ -2,7 +2,7 @@ package com.groundzero.asynclabs.di.modules
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.groundzero.asynclabs.features.authentication.api.AuthenticationApi
+import com.groundzero.asynclabs.features.authentication.common.api.AuthenticationApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

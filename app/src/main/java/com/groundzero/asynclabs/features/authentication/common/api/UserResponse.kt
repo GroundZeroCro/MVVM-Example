@@ -1,4 +1,4 @@
-package com.groundzero.asynclabs.features.authentication.api
+package com.groundzero.asynclabs.features.authentication.common.api
 
 data class UserResponse (
     val avatar: String,

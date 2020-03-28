@@ -1,10 +1,10 @@
 package com.groundzero.asynclabs.features.authentication.registration.data
 
 import com.groundzero.asynclabs.data.resultLiveData
-import com.groundzero.asynclabs.features.authentication.persistance.Token
-import com.groundzero.asynclabs.features.authentication.persistance.TokenDao
-import com.groundzero.asynclabs.features.authentication.persistance.User
-import com.groundzero.asynclabs.features.authentication.persistance.UserDao
+import com.groundzero.asynclabs.features.authentication.common.persistance.Token
+import com.groundzero.asynclabs.features.authentication.common.persistance.TokenDao
+import com.groundzero.asynclabs.features.authentication.common.persistance.User
+import com.groundzero.asynclabs.features.authentication.common.persistance.UserDao
 import javax.inject.Inject
 
 class RegistrationRepository @Inject constructor(

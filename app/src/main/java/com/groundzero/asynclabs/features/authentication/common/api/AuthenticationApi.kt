@@ -1,4 +1,4 @@
-package com.groundzero.asynclabs.features.authentication.api
+package com.groundzero.asynclabs.features.authentication.common.api
 
 import retrofit2.Response
 import retrofit2.http.POST

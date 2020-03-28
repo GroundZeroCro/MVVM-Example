@@ -1,8 +1,8 @@
-package com.groundzero.asynclabs.features.authentication.persistance
+package com.groundzero.asynclabs.features.authentication.common.persistance
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.groundzero.asynclabs.features.authentication.api.UserResponse
+import com.groundzero.asynclabs.features.authentication.common.api.UserResponse
 
 @Entity(tableName = "user")
 data class User(

@@ -1,8 +1,8 @@
 package com.groundzero.asynclabs.features.authentication.login.data
 
 import com.groundzero.asynclabs.data.resultLiveData
-import com.groundzero.asynclabs.features.authentication.persistance.Token
-import com.groundzero.asynclabs.features.authentication.persistance.TokenDao
+import com.groundzero.asynclabs.features.authentication.common.persistance.Token
+import com.groundzero.asynclabs.features.authentication.common.persistance.TokenDao
 import javax.inject.Inject
 
 class LoginRepository @Inject constructor(

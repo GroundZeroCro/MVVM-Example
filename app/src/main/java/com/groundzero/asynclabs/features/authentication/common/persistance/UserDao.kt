@@ -1,4 +1,4 @@
-package com.groundzero.asynclabs.features.authentication.persistance
+package com.groundzero.asynclabs.features.authentication.common.persistance
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

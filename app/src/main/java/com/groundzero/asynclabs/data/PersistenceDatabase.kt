@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.groundzero.asynclabs.features.authentication.persistance.Token
-import com.groundzero.asynclabs.features.authentication.persistance.TokenDao
-import com.groundzero.asynclabs.features.authentication.persistance.User
-import com.groundzero.asynclabs.features.authentication.persistance.UserDao
+import com.groundzero.asynclabs.features.authentication.common.persistance.Token
+import com.groundzero.asynclabs.features.authentication.common.persistance.TokenDao
+import com.groundzero.asynclabs.features.authentication.common.persistance.User
+import com.groundzero.asynclabs.features.authentication.common.persistance.UserDao
 
 @Database(
     entities = [User::class, Token::class],
