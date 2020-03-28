@@ -73,4 +73,7 @@ dependencies {
     implementation "androidx.room:room-ktx:$rootProject.room"
     kapt "androidx.room:room-compiler:$rootProject.room"
     testImplementation "androidx.room:room-testing:$rootProject.room"
+    // Images
+    implementation "com.github.bumptech.glide:glide:$rootProject.glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glide"
 }

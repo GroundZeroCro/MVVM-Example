@@ -32,6 +32,7 @@ class FeedFragment : BaseFragment() {
                         requireContext().getString(R.string.progress_bar_loading_feed)
                     )
                 Result.Status.SUCCESS -> {
+                    println(it.data)
                     progressDialog.cancelDialog()
                     feedAdapter.submitList(it.data)
                 }

@@ -10,6 +10,7 @@ buildscript {
         gson = '2.8.5'
         dagger2 = '2.23.2'
         room = '2.2.5'
+        glide = '4.11.0'
     }
     repositories {
         google()

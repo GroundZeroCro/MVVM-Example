@@ -1,4 +1,6 @@
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -7,16 +9,49 @@
             type="com.groundzero.mvvm.features.content.feed.domain.Feed" />
     </data>
 
-    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/small_padding"
         android:elevation="@dimen/card_elevation">
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{feed.description}"
-            android:layout_margin="@dimen/normal_padding"/>
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:alpha="0.5"
+                android:src="@drawable/placeholder"
+                app:layout_constraintBottom_toBottomOf="@id/item_feed_image"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/item_feed_image"
+                setImage="@{feed.video.poster}"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/normal_padding"
+                android:layout_marginLeft="@dimen/normal_padding"
+                android:layout_marginRight="@dimen/normal_padding"
+                android:paddingBottom="@dimen/normal_padding"
+                android:text="@{feed.description}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_feed_image" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>
