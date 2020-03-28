@@ -5,4 +5,7 @@
     <dimen name="medium_padding">16dp</dimen>
     <dimen name="slide_animation_duration">200</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="small_padding">4dp</dimen>
+    <dimen name="normal_padding">8dp</dimen>
 </resources>
