@@ -3,6 +3,7 @@ package com.groundzero.mvvm.features.content.feed.api
 data class FeedResponse(
     val id: Int,
     val description: String,
+    val createdBefore: String,
     val views: String,
     val author: Author,
     val video: Video

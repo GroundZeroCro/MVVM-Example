@@ -11,6 +11,7 @@ data class Feed(
     @PrimaryKey(autoGenerate = false)
     val id: Int,
     val description: String,
+    val createdBefore: String,
     val views: String,
     @TypeConverters(FeedConverters::class)
     val author: Author,
@@ -36,6 +37,7 @@ data class Feed(
                 Feed(
                     it.id,
                     it.description,
+                    it.createdBefore,
                     it.views,
                     Author(
                         it.author.id,
