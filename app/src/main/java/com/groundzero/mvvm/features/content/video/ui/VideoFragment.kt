@@ -23,6 +23,7 @@ class VideoFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = FragmentVideoBinding.inflate(inflater).apply {
+        feed = args.feed
         moviePlayer.preparePlayer(args.feed.video.url)
         videoPlayer.player = moviePlayer.player
     }.root
