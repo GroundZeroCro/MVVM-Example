@@ -7,6 +7,7 @@ import com.groundzero.mvvm.di.scopes.ViewModelKey
 import com.groundzero.mvvm.features.authentication.login.ui.LoginViewModel
 import com.groundzero.mvvm.features.authentication.registration.ui.RegistrationViewModel
 import com.groundzero.mvvm.features.content.feed.ui.FeedViewModel
+import com.groundzero.mvvm.features.landing.LandingViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -28,6 +29,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(FeedViewModel::class)
     abstract fun bindFeedViewModel(viewModel: FeedViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LandingViewModel::class)
+    abstract fun bindLandingViewModel(viewModel: LandingViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

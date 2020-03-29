@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.groundzero.mvvm.base.App"
+        android:name=".base.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,17 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.groundzero.mvvm.features.authentication.common.base.AuthenticationActivity">
+        <activity android:name=".features.landing.LandingActivity"
+            android:theme="@style/LandingTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.groundzero.mvvm.features.content.common.base.ContentActivity"
-            android:label="@string/title_activity_feed"
+        <activity android:name=".features.authentication.common.base.AuthenticationActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".features.content.common.base.ContentActivity"
+            android:label="@string/title_activity_feed"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
