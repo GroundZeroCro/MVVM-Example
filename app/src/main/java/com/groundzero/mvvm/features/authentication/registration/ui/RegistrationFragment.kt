@@ -25,27 +25,51 @@ class RegistrationFragment : BaseFragment() {
         viewModel = injectViewModel(viewModelFactory)
 
         registerButton.setOnClickListener {
-            viewModel.register(
-                authUsername.text.toString(),
-                authEmail.text.toString(),
-                authPassword.text.toString()
-            ).observe(viewLifecycleOwner, Observer {
+            val username = authUsername.text.toString()
+            val email = authEmail.text.toString()
+            val password = authPassword.text.toString()
+            val passwordConfirm = authConfirmPassword.text.toString()
 
-                when(it.status) {
-                    Result.Status.LOADING ->
-                        progressDialog.showDialog(requireContext(), requireContext().getString(R.string.progress_bar_logging_in_message))
-                    Result.Status.SUCCESS -> {
-                        progressDialog.cancelDialog()
-                        startActivity(Intent(requireContext(), ContentActivity::class.java))
-                        requireActivity().finish()
-                    }
-                    Result.Status.ERROR -> {}
-                }
-            })
+            if(viewModel.credentialsValid(email, username, password, passwordConfirm)) {
+                registerUser(username, email, password)
+            }
+            observeInvalidCredentials()
         }
 
         authLogin.setOnClickListener {
             go(R.id.action_registrationFragment_to_loginFragment)
         }
     }.root
+
+    private fun registerUser(username: String, email: String, password: String) {
+        viewModel.register(
+            username,
+            email,
+            password
+        ).observe(viewLifecycleOwner, Observer {
+
+            when (it.status) {
+                Result.Status.LOADING ->
+                    progressDialog.showDialog(
+                        requireContext(),
+                        requireContext().getString(R.string.progress_bar_logging_in_message)
+                    )
+                Result.Status.SUCCESS -> {
+                    progressDialog.cancelDialog()
+                    startActivity(Intent(requireContext(), ContentActivity::class.java))
+                    requireActivity().finish()
+                }
+                Result.Status.ERROR -> {
+                }
+            }
+        })
+    }
+
+    private fun observeInvalidCredentials() {
+        viewModel.credentialsValidationLive().observe(viewLifecycleOwner, Observer {
+            if(it != 0) {
+                showToastMessage(getString(it))
+            }
+        })
+    }
 }

@@ -27,4 +27,11 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="progress_bar_loading_feed">Loading feed</string>
     <string name="exception_player_not_instantiated">Instantiate player first</string>
+    <string name="invalid_credentials">Invalid credentials</string>
+    <string name="unable_to_login">Unable to login</string>
+    <string name="empty_email_warning">Email field can not be empty</string>
+    <string name="password_empty_warning">Password should not be empty</string>
+    <string name="email_invalid_form">Email has invalid form</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="empty_username_warning">Username can not be empty field</string>
 </resources>

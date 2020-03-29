@@ -26,30 +26,48 @@ class LoginFragment : BaseFragment() {
         viewModel = injectViewModel(viewModelFactory)
 
         loginButton.setOnClickListener {
-            viewModel.login(
-                authUsername.text.toString(),
-                authPassword.text.toString()
-            ).observe(viewLifecycleOwner, Observer {
-
-                when (it.status) {
-                    Result.Status.LOADING ->
-                        progressDialog.showDialog(
-                            requireContext(),
-                            requireContext().getString(R.string.progress_bar_logging_in_message)
-                        )
-                    Result.Status.SUCCESS -> {
-                        progressDialog.cancelDialog()
-                        startActivity(Intent(requireContext(), ContentActivity::class.java))
-                        requireActivity().finish()
-                    }
-                    Result.Status.ERROR -> {
-                    }
-                }
-            })
+            val email = authEmail.text.toString()
+            val password = authPassword.text.toString()
+            if (viewModel.credentialsValid(email, password)) {
+                doLogin(email, password)
+            }
         }
+        observeInvalidCredentials()
 
         authSignUp.setOnClickListener {
             go(R.id.action_loginFragment_to_registrationFragment)
         }
     }.root
+
+    private fun doLogin(email: String, password: String) {
+        viewModel.login(
+            email,
+            password
+        ).observe(viewLifecycleOwner, Observer {
+
+            when (it.status) {
+                Result.Status.LOADING ->
+                    progressDialog.showDialog(
+                        requireContext(),
+                        requireContext().getString(R.string.progress_bar_logging_in_message)
+                    )
+                Result.Status.SUCCESS -> {
+                    progressDialog.cancelDialog()
+                    startActivity(Intent(requireContext(), ContentActivity::class.java))
+                    requireActivity().finish()
+                }
+                Result.Status.ERROR -> {
+                    showToastMessage(requireContext().getString(R.string.unable_to_login))
+                }
+            }
+        })
+    }
+
+    private fun observeInvalidCredentials() {
+        viewModel.credentialsValidationLive().observe(viewLifecycleOwner, Observer {
+            if(it != 0) {
+                showToastMessage(getString(it))
+            }
+        })
+    }
 }

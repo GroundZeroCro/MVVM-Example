@@ -1,6 +1,7 @@
 package com.groundzero.mvvm.base
 
 import android.content.Context
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.groundzero.mvvm.di.helper.Injectable
@@ -18,5 +19,9 @@ open class BaseFragment : Fragment(), Injectable {
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
+    }
+
+    fun showToastMessage(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
     }
 }
