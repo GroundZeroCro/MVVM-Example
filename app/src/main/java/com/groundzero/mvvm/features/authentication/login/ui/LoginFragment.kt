@@ -53,8 +53,10 @@ class LoginFragment : BaseFragment() {
                     )
                 Result.Status.SUCCESS -> {
                     progressDialog.cancelDialog()
-                    startActivity(Intent(requireContext(), ContentActivity::class.java))
-                    requireActivity().finish()
+                    if (it.data != null) {
+                        startActivity(Intent(requireContext(), ContentActivity::class.java))
+                        requireActivity().finish()
+                    }
                 }
                 Result.Status.ERROR -> {
                     showToastMessage(requireContext().getString(R.string.unable_to_login))
