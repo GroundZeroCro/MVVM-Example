@@ -24,6 +24,7 @@ class LandingActivity : BaseActivity() {
                 GoScreenType.LOGIN -> nextActivity(AuthenticationActivity::class.java)
                 GoScreenType.CONTENT -> nextActivity(ContentActivity::class.java)
             }
+            finish()
         }
     }
 
