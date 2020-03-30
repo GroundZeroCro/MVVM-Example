@@ -2,6 +2,8 @@ package com.groundzero.mvvm.features.landing
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import com.groundzero.mvvm.R
 import com.groundzero.mvvm.base.BaseActivity
 import com.groundzero.mvvm.di.helper.injectViewModel
 import com.groundzero.mvvm.features.authentication.common.base.AuthenticationActivity
@@ -17,6 +19,9 @@ class LandingActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         CoroutineScope(IO).launch {
             viewModel = injectViewModel(viewModelFactory)
             delay(1000)
@@ -24,7 +29,10 @@ class LandingActivity : BaseActivity() {
                 GoScreenType.LOGIN -> nextActivity(AuthenticationActivity::class.java)
                 GoScreenType.CONTENT -> nextActivity(ContentActivity::class.java)
             }
-            finish()
+            finish().apply {
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
+                finish()
+            }
         }
     }
 

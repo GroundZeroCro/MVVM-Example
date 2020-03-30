@@ -12,8 +12,9 @@
       android:bottom="@dimen/medium_padding">
 
     <bitmap
-      android:src="@drawable/ball"
-      android:gravity="center" />
+        android:src="@drawable/ball"
+        android:gravity="center" />
+        />
 
   </item>
 
