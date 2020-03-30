@@ -19,6 +19,9 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_right"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_feedFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/videoFragment"
@@ -28,5 +31,14 @@
         <argument
             android:name="feed"
             app:argType="com.groundzero.mvvm.features.content.feed.domain.Feed" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.groundzero.mvvm.features.content.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="User"
+            app:argType="com.groundzero.mvvm.features.authentication.common.domain.User" />
     </fragment>
 </navigation>
