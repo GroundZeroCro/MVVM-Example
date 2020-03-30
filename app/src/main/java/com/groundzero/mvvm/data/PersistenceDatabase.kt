@@ -12,12 +12,14 @@ import com.groundzero.mvvm.features.authentication.common.domain.UserDao
 import com.groundzero.mvvm.features.content.feed.domain.Feed
 import com.groundzero.mvvm.features.content.feed.domain.FeedConverters
 import com.groundzero.mvvm.features.content.feed.domain.FeedDao
+import com.groundzero.mvvm.features.content.profile.domain.Profile
+import com.groundzero.mvvm.features.content.profile.domain.ProfileDao
 
 @TypeConverters(
     FeedConverters::class
 )
 @Database(
-    entities = [User::class, Token::class, Feed::class],
+    entities = [User::class, Token::class, Feed::class, Profile::class],
     exportSchema = false,
     version = 1
 )
@@ -26,6 +28,7 @@ abstract class PersistenceDatabase : RoomDatabase() {
     abstract fun getUserDao(): UserDao
     abstract fun getTokenDao(): TokenDao
     abstract fun getFeedDao(): FeedDao
+    abstract fun getProfileDao(): ProfileDao
 
     companion object {
 

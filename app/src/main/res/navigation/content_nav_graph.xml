@@ -34,11 +34,11 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.groundzero.mvvm.features.content.profile.ProfileFragment"
+        android:name="com.groundzero.mvvm.features.content.profile.ui.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile">
+        tools:layout="@layout/fragment_profile" >
         <argument
-            android:name="User"
-            app:argType="com.groundzero.mvvm.features.authentication.common.domain.User" />
+            android:name="userId"
+            app:argType="integer" />
     </fragment>
 </navigation>

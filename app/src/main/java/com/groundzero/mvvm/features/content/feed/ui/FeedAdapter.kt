@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.groundzero.mvvm.databinding.ItemFeedBinding
 import com.groundzero.mvvm.features.content.feed.domain.Feed
+import kotlinx.android.synthetic.main.item_feed.view.*
 
 class FeedAdapter(private val listener: FeedListener) :
     ListAdapter<Feed, FeedAdapter.FeedViewHolder>(DIFF_CALLBACK) {
@@ -17,6 +18,7 @@ class FeedAdapter(private val listener: FeedListener) :
         fun bind(feed: Feed) {
             binding.feed = feed
             itemView.setOnClickListener { listener.onItemClick(feed) }
+            itemView.item_author.setOnClickListener{ listener.onUserClick(feed.author.id)}
         }
     }
 

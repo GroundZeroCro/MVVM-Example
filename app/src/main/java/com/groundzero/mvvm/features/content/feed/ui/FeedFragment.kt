@@ -18,12 +18,10 @@ class FeedFragment : BaseFragment(), FeedListener {
     private lateinit var viewModel: FeedViewModel
     private var feedAdapter: FeedAdapter = FeedAdapter(this)
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = FragmentFeedBinding.inflate(inflater, container, false).apply {
-        feedRecyclerView.adapter = feedAdapter
         viewModel = injectViewModel(viewModelFactory)
         viewModel.feed.observe(viewLifecycleOwner, Observer {
 
@@ -41,10 +39,17 @@ class FeedFragment : BaseFragment(), FeedListener {
                 }
             }
         })
+        feedRecyclerView.adapter = feedAdapter
+        feedMyProfile.setOnClickListener { showToastMessage(requireContext().getString(R.string.needs_implementation)) }
     }.root
 
     override fun onItemClick(feed: Feed) {
         val action = FeedFragmentDirections.actionFeedFragmentToVideoFragment(feed)
+        findNavController().navigate(action)
+    }
+
+    override fun onUserClick(itemId: Int) {
+        val action = FeedFragmentDirections.actionFeedFragmentToProfileFragment(itemId)
         findNavController().navigate(action)
     }
 }
