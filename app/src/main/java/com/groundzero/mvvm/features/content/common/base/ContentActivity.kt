@@ -1,9 +1,9 @@
 package com.groundzero.mvvm.features.content.common.base
 
 import android.os.Bundle
-import androidx.navigation.fragment.NavHostFragment
 import com.groundzero.mvvm.R
 import com.groundzero.mvvm.base.BaseActivity
+
 
 class ContentActivity : BaseActivity() {
 

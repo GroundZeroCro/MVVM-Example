@@ -20,4 +20,7 @@ class RegistrationRepository @Inject constructor(
         },
         observeLocal = { userDao.getUser() }
     )
+
+    suspend fun deleteUser() = userDao.delete()
+    suspend fun deleteToken() = tokenDao.delete()
 }

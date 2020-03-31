@@ -1,6 +1,5 @@
 package com.groundzero.mvvm.features.authentication.login.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -67,7 +66,7 @@ class LoginFragment : BaseFragment() {
 
     private fun observeInvalidCredentials() {
         viewModel.credentialsValidationLive().observe(viewLifecycleOwner, Observer {
-            if(it != 0) {
+            if (it != 0) {
                 showToastMessage(getString(it))
             }
         })

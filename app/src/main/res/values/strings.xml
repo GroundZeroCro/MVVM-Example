@@ -37,9 +37,10 @@
     <string name="passwords_do_not_match">Passwords do not match</string>
     <string name="empty_username_warning">Username can not be empty field</string>
     <string name="unable_to_register">Unable to register, please try again later</string>
-    <string name="my_profile">My Profile</string>
+    <string name="logout">Logout</string>
     <string name="needs_implementation">Coming soon</string>
     <string name="profile_name">Name</string>
     <string name="profile_username">Username</string>
     <string name="progress_bar_loading_profile">Loading profile</string>
+    <string name="logout_button_tap">Tap button one more time to log out</string>
 </resources>
