@@ -20,13 +20,4 @@ open class BaseActivity: AppCompatActivity(), HasSupportFragmentInjector {
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector
-
-    private fun nextActivity(clazz: Class<*>) {
-        startActivity(Intent(applicationContext, clazz).apply {
-            startActivity(this).apply {
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
-                finish()
-            }
-        })
-    }
 }
