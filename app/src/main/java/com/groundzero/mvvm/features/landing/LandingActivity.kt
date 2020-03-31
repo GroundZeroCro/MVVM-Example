@@ -28,11 +28,13 @@ class LandingActivity : BaseActivity() {
                 GoScreenType.LOGIN -> nextActivity(AuthenticationActivity::class.java)
                 GoScreenType.CONTENT -> nextActivity(ContentActivity::class.java)
             }
-            finish()
         }
     }
 
     private fun nextActivity(clazz: Class<*>) {
-        startActivity(Intent(applicationContext, clazz))
+        startActivity(Intent(applicationContext, clazz).apply {
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
+            finish()
+        })
     }
 }

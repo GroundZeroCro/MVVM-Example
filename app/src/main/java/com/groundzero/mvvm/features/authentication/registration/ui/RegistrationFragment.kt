@@ -1,6 +1,5 @@
 package com.groundzero.mvvm.features.authentication.registration.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,7 +29,7 @@ class RegistrationFragment : BaseFragment() {
             val password = authPassword.text.toString()
             val passwordConfirm = authConfirmPassword.text.toString()
 
-            if(viewModel.credentialsValid(email, username, password, passwordConfirm)) {
+            if (viewModel.credentialsValid(email, username, password, passwordConfirm)) {
                 registerUser(username, email, password)
             }
             observeInvalidCredentials()
@@ -56,8 +55,8 @@ class RegistrationFragment : BaseFragment() {
                     )
                 Result.Status.SUCCESS -> {
                     progressDialog.cancelDialog()
-                    if(it.data != null) {
-                        startActivity(Intent(requireContext(), ContentActivity::class.java))
+                    if (it.data != null) {
+                        nextActivity(ContentActivity::class.java)
                         requireActivity().finish()
                     }
                 }
@@ -70,7 +69,7 @@ class RegistrationFragment : BaseFragment() {
 
     private fun observeInvalidCredentials() {
         viewModel.credentialsValidationLive().observe(viewLifecycleOwner, Observer {
-            if(it != 0) {
+            if (it != 0) {
                 showToastMessage(getString(it))
             }
         })

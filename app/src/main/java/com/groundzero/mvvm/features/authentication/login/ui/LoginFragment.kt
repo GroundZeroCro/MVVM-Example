@@ -54,7 +54,7 @@ class LoginFragment : BaseFragment() {
                 Result.Status.SUCCESS -> {
                     progressDialog.cancelDialog()
                     if (it.data != null) {
-                        startActivity(Intent(requireContext(), ContentActivity::class.java))
+                        nextActivity(ContentActivity::class.java)
                         requireActivity().finish()
                     }
                 }
